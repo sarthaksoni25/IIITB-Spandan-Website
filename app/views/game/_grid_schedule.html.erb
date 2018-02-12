@@ -1,0 +1,34 @@
+<%= grid(@complete) do |g|
+  g.column name: 'Player/Team 1' ,attribute: 'party1' do |task|
+    #@team.find(task.party1).nam
+    begin
+      t = Team.where(parent_id: User.find_by_email(task.party1).id, event_id: task.event_id)[0]
+      t.name
+    rescue
+      task.party1
+    end
+
+    #@team.namefrfrf
+    #task.party1
+  end
+
+  g.column name: 'Player/Team 2' ,attribute: 'party2' do |task|
+    begin
+      t = Team.where(parent_id: User.find_by_email(task.party2).id, event_id: task.event_id)[0]
+      t.name
+    rescue
+      task.party2
+    end
+  end
+
+  g.column name: 'Event', attribute: 'event_id' do |task|
+    task.event.name
+  end
+
+  g.column name: 'Schedule', attribute: 'schedule' do |task|
+    task.schedule
+  end
+  g.column name: 'description', attribute: 'description' do |task|
+    task.description
+  end
+end %>

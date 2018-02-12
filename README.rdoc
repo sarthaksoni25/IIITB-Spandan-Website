@@ -1,0 +1,10 @@
+== README
+
+Some important info:
+
+* Use Ruby 2.2
+
+* Getting Started: Pull the code. Run 'bundle install'. Make sure mysql is installed. Create a database named 'spandan2016_development'. Modify your database credentials using file 'config/database.yml'. Please don't commit any changes which you make to database.yml file.
+
+* Deployment instructions: If you are contributing something which requires you to use secret keys and stuff then don't commit them to code. We will discuss about how to deal with that case separately. 
+

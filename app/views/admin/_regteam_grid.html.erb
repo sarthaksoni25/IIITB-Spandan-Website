@@ -1,0 +1,69 @@
+<%= grid(@tasks_grid,show_filters: :when_filtered) do |g|
+
+  g.column name: 'team_id' ,attribute: 'id' do |task|
+    task.team.id
+  end
+
+  g.column name: 'team_name' ,attribute: 'id' do |task|
+    task.team.name
+  end
+
+  g.column name: 'captainName' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].name
+  end
+
+  g.column name: 'captainPhone' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].phone_number
+  end
+
+  g.column name: 'captainRollNum' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].roll_no
+  end
+
+
+  g.column name: 'captainEmail' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].email
+  end
+=begin
+  g.column name: 'vcName' ,attribute: 'id' do |task|
+    begin
+	task.team.users[1].name
+    rescue
+	"NA"
+    end 
+  end
+
+  g.column name: 'vcEmail' ,attribute: 'id' do |task|
+    begin
+	task.team.users[1].email
+    rescue 
+	"NA"
+    end
+  end
+
+
+  g.column name: 'vcPhone' ,attribute: 'id' do |task|
+    begin
+	task.team.users[1].phone_number
+    rescue
+	"NA"
+    end
+  end
+
+    g.column name: 'vcRollNum' ,attribute: 'id' do |task|
+    begin
+  task.team.users[1].roll_no
+    rescue
+  "NA"
+    end
+  end
+=end
+
+  g.column name: 'event_id' ,attribute: 'event_id' do |task|
+    task.event.id
+  end
+
+  g.column name: 'event_name' ,attribute: 'event_id' do |task|
+    task.event.name
+  end
+end -%>
